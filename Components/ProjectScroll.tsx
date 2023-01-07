@@ -38,11 +38,15 @@ export default function ProjectScroll({ children }: Prop) {
         aria-label="Left Scroll button"
         className="vertical-center"
       >
-        <ChevronLeftIcon fontSize="large"/>
+        <ChevronLeftIcon fontSize="large" />
       </IconButton>
       <section id="scrollContainer">{children}</section>
-      <IconButton id="rightScrollButton" aria-label="Right Scroll Button" className="vertical-center">
-        <ChevronRightIcon fontSize="large"/>
+      <IconButton
+        id="rightScrollButton"
+        aria-label="Right Scroll Button"
+        className="vertical-center"
+      >
+        <ChevronRightIcon fontSize="large" />
       </IconButton>
     </div>
   );

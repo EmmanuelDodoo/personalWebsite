@@ -17,7 +17,7 @@ const projectCard = (project: PrimitiveProject) => {
   return (
     <div key={project.name + "Card"}>
       <Box pt={1} pb={1} sx={{ whiteSpace: "normal" }} className="project-box">
-        <Card raised sx={{backgroundColor:'#FAF9F6'}}>
+        <Card raised sx={{ backgroundColor: "#FAF9F6" }}>
           <Link
             underline="none"
             href={project.visitLink ? project.visitLink : project.githubLink}
@@ -31,7 +31,7 @@ const projectCard = (project: PrimitiveProject) => {
                 alt={project.name + "CardPreview"}
               />
               <CardContent>
-                <Typography variant="h5" fontWeight={'bold'} color="secondary">
+                <Typography variant="h5" fontWeight={"bold"} color="secondary">
                   {project.name}
                 </Typography>
                 <Box className="projectDescBox">
@@ -112,26 +112,9 @@ export default function Projects() {
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-
-  // return (
-  //   <div className="projects-list-div">
-  //     <Box className="project-box">
-  //       <Tabs
-  //         value={value}
-  //         onChange={handleChange}
-  //         variant="scrollable"
-  //         scrollButtons="auto"
-  //         aria-label="scrollable projects tab"
-  //       >
-  //         {projectList.map((proj) => projectCard(proj))}
-  //       </Tabs>
-  //     </Box>
-  //   </div>
-  // );
   return (
     <ProjectScroll>
       {projectList.map((proj) => projectCard(proj))}
     </ProjectScroll>
-  )
-
+  );
 }

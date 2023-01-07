@@ -56,7 +56,9 @@ const internalNavlister = ({ name, path }: NavData) => {
   return (
     <Container key={name + "Navigation"}>
       <Button href={path}>
-        <Typography fontWeight="bold" color={'textPrimary'}>{name}</Typography>
+        <Typography fontWeight="bold" color={"textPrimary"}>
+          {name}
+        </Typography>
       </Button>
     </Container>
   );
@@ -69,7 +71,13 @@ const iconNavLister = ({ name, path, component }: IconNavData) => {
       sx={{ padding: "3px 5px" }}
       key={name + "IconNavigation"}
     >
-      <Link href={path} underline="none" target="_blank" rel="noopener" color='textSecondary'>
+      <Link
+        href={path}
+        underline="none"
+        target="_blank"
+        rel="noopener"
+        color="textSecondary"
+      >
         {component}
       </Link>
     </Container>
@@ -86,7 +94,7 @@ export default function Navbar() {
           justifyContent: "space-between",
           marginTop: "5px",
           marginBottom: "10px",
-          borderBottom: '2px solid #70573a' 
+          borderBottom: "2px solid #70573a",
         }}
       >
         <Stack direction="row" sx={{ paddingLeft: "5%" }}>

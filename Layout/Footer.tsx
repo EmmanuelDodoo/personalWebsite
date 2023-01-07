@@ -10,7 +10,7 @@ import LaunchIcon from "@mui/icons-material/Launch";
 export default function Footer() {
   return (
     <>
-      <Box sx={{ marginTop: "10px",}}>
+      <Box sx={{ marginTop: "10px" }}>
         <Divider orientation="horizontal" role="contentinfo">
           <Typography align="center" fontWeight="bold">
             <Link

@@ -51,7 +51,11 @@ export default function AboutMe() {
             />
           </div>
           <div className="about-me-content">
-            <Typography variant="h6" id="typing" className="typing"></Typography>
+            <Typography
+              variant="h6"
+              id="typing"
+              className="typing"
+            ></Typography>
           </div>
         </Stack>
       </div>
