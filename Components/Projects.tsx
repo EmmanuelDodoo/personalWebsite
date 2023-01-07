@@ -11,6 +11,7 @@ import GithubIcon from "@mui/icons-material/GitHub";
 import Tabs from "@mui/material/Tabs";
 import Box from "@mui/material/Box";
 import { useState } from "react";
+import ProjectScroll from "./ProjectScroll";
 
 const projectCard = (project: PrimitiveProject) => {
   return (
@@ -112,19 +113,25 @@ export default function Projects() {
     setValue(newValue);
   };
 
+  // return (
+  //   <div className="projects-list-div">
+  //     <Box className="project-box">
+  //       <Tabs
+  //         value={value}
+  //         onChange={handleChange}
+  //         variant="scrollable"
+  //         scrollButtons="auto"
+  //         aria-label="scrollable projects tab"
+  //       >
+  //         {projectList.map((proj) => projectCard(proj))}
+  //       </Tabs>
+  //     </Box>
+  //   </div>
+  // );
   return (
-    <div className="projects-list-div">
-      <Box className="project-box">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          variant="scrollable"
-          scrollButtons="auto"
-          aria-label="scrollable projects tab"
-        >
-          {projectList.map((proj) => projectCard(proj))}
-        </Tabs>
-      </Box>
-    </div>
-  );
+    <ProjectScroll>
+      {projectList.map((proj) => projectCard(proj))}
+    </ProjectScroll>
+  )
+
 }

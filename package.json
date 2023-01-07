@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "optimize-images": "imagemin src/public dist/images --max=80 --verbose"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -20,7 +21,6 @@
     "@types/react-dom": "18.0.10",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
-    "firebase": "^9.15.0",
     "mui-image": "^1.0.7",
     "next": "13.1.1",
     "react": "18.2.0",
@@ -28,8 +28,5 @@
     "styled-components": "^5.3.6",
     "typed.js": "^2.0.12",
     "typescript": "4.9.4"
-  },
-  "devDependencies": {
-    "@types/ityped": "^1.0.1"
   }
 }

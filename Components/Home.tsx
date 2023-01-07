@@ -18,10 +18,15 @@ export default function Home() {
       >
         <AboutMe />
         <div className="hidden"></div>
-        <div id="projects" className="center" style={{ width: "15%" }}>
+        <div id="projects" className="center" style={{ width: "90%" }}>
           <Typography
             variant="h4"
-            sx={{ fontStyle: "italic", fontWeight: "bold" }}
+            sx={{
+              fontStyle: "italic",
+              fontWeight: "bold",
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}
           >
             My Projects
           </Typography>

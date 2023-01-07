@@ -17,7 +17,7 @@ export default function Layout({ children }: Prop) {
         <link rel="icon" href="/main.jpg" />
       </Head>
       <Navbar />
-      <div >{children}</div>
+      <div>{children}</div>
       {/* Footer in `Home` Component */}
     </>
   );
