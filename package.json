@@ -7,7 +7,6 @@
     "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
-    "optimize-images": "imagemin src/public dist/images --max=80 --verbose"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
