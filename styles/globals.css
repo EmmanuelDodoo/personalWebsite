@@ -144,6 +144,12 @@ body{
   padding: var(--size-10);
 }
 
+#leftScrollButton{
+  margin-right: 1%;
+}
+#rightScrollButton{
+  margin-left: 1%;
+}
 
 
 #scrollContainer::-webkit-scrollbar{

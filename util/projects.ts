@@ -1,5 +1,7 @@
 import { Project, PrimitiveProject } from "../types";
 
+const defaultPreview:string = "default-preview.gif";
+
 const projectList:PrimitiveProject[] = [
     {
         name:"Big Red Musix",
@@ -7,94 +9,49 @@ const projectList:PrimitiveProject[] = [
         buildTools:[
             "TypeScript",
             "React",
-            "Next.js",
+            "HTML/CSS",
             "FireBase",
             "Chakra-ui",
-            "Here",
-            "other",
-            "something"
+            "Next.js",
         ],
         githubLink:"https://github.com/thuypham03/cu-music",
         visitLink:"",
-        shortDescripttion:"Something is supposed to be here. what should and even more things for this to handle what is the limit here still not doing as I expectw asdf asefe adsfas aseta asdf4as ea I typasldfk asldfkj asdoi"
+        shortDescripttion:"Discover new music, share your favorite tracks and connect with other music lovers. Experience seamless sorting, liking and following features, all built with React, Firebase, Chakra-ui, and Typescript."
     },
     {
-        name:"Big Red Musix1",
-        pathToPreview: "Big-Red-Musix.gif",
+        name:"Pong game",
+        pathToPreview: defaultPreview,
         buildTools:[
-            "TypeScript",
-            "React",
-            "Next.js",
-            "FireBase",
-            "Chakra-ui"
+            "Python",
+            "Pygame"
         ],
-        githubLink:"https://github.com/thuypham03/cu-music",
+        githubLink:"https://github.com/EmmanuelDodoo/pong_game",
         visitLink:"",
-        shortDescripttion:"Something is supposed to be here. what should I typasldfk asldfkj asdoi"
+        shortDescripttion:"Get ready for a nostalgic trip with this classic Pong game, rebuilt using Pygame and Python. Experience the thrill of the retro game with a modern twist."
     },
     {
-        name:"Big Red Musix2",
-        pathToPreview: "Big-Red-Musix.gif",
+        name:"Focus Website",
+        pathToPreview: "Focus-Website.gif",
         buildTools:[
-            "TypeScript",
-            "React",
-            "Next.js",
-            "FireBase",
-            "Chakra-ui"
+            "JavaScript",
+            "HTML",
+            "CSS"
         ],
-        githubLink:"https://github.com/thuypham03/cu-music",
+        githubLink:"https://github.com/CorneliusOsei2/focus",
         visitLink:"",
-        shortDescripttion:"Something is supposed to be here"
-    },
+        shortDescripttion:"Fully-responsive website for Focus Inc. in Ghana. Company is focused on enhancing food accessibility in Africa and advertising farm produce!"
+    },    
     {
-        name:"Big Red Musix3",
-        pathToPreview: "Big-Red-Musix.gif",
+        name:"Python Video Streaming",
+        pathToPreview: defaultPreview,
         buildTools:[
-            "TypeScript",
-            "React",
-            "Next.js",
-            "FireBase",
-            "Chakra-ui"
+            "Python",
+            "Python in-built libraries", 
         ],
-        githubLink:"https://github.com/thuypham03/cu-music",
+        githubLink:"",
         visitLink:"",
-        shortDescripttion:"Something is supposed to be here"
+        shortDescripttion:"Get your groove on with this Python-powered music playlist. Enjoy a seamless listening experience. Built using only the best of Python's in-built libraries, this playlist is sure to be your go-to for all your music needs."
     },
-    {
-        name:"Big Red Musix4",
-        pathToPreview: "Big-Red-Musix.gif",
-        buildTools:[
-            "TypeScript",
-            "React",
-            "Next.js",
-            "FireBase",
-            "Chakra-ui",
-            "Here",
-            "other",
-            "something"
-        ],
-        githubLink:"https://github.com/thuypham03/cu-music",
-        visitLink:"",
-        shortDescripttion:"Something is supposed to be here. what should and even more things for this to handle what is the limit here still not doing as I expectw asdf asefe adsfas aseta asdf4as ea I typasldfk asldfkj asdoi"
-    },
-    {
-        name:"Big Red Musix5",
-        pathToPreview: "Big-Red-Musix.gif",
-        buildTools:[
-            "TypeScript",
-            "React",
-            "Next.js",
-            "FireBase",
-            "Chakra-ui",
-            "Here",
-            "other",
-            "something"
-        ],
-        githubLink:"https://github.com/thuypham03/cu-music",
-        visitLink:"",
-        shortDescripttion:"Something is supposed to be here. what should and even more things for this to handle what is the limit here still not doing as I expectw asdf asefe adsfas aseta asdf4as ea I typasldfk asldfkj asdoi"
-    },
-    
 ]
 
 export {projectList}

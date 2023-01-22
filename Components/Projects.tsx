@@ -8,12 +8,12 @@ import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import LaunchIcon from "@mui/icons-material/Launch";
 import GithubIcon from "@mui/icons-material/GitHub";
-import Tabs from "@mui/material/Tabs";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 import ProjectScroll from "./ProjectScroll";
 
 const projectCard = (project: PrimitiveProject) => {
+  const linksPresent = project.visitLink || project.githubLink ? true : false
   return (
     <div key={project.name + "Card"}>
       <Box pt={1} pb={1} sx={{ whiteSpace: "normal" }} className="project-box">
@@ -21,7 +21,7 @@ const projectCard = (project: PrimitiveProject) => {
           <Link
             underline="none"
             href={project.visitLink ? project.visitLink : project.githubLink}
-            target="_blank"
+            target= {linksPresent ? "_blank" : "_self"}
             rel="noopener"
           >
             <CardActionArea>
@@ -29,6 +29,7 @@ const projectCard = (project: PrimitiveProject) => {
                 component="img"
                 image={project.pathToPreview}
                 alt={project.name + "CardPreview"}
+                sx={{height:"240px"}}
               />
               <CardContent>
                 <Typography variant="h5" fontWeight={"bold"} color="secondary">
@@ -82,7 +83,8 @@ const projectCard = (project: PrimitiveProject) => {
             ) : (
               <></>
             )}
-            <Link
+            {project.githubLink? (
+              <Link
               underline="none"
               href={project.githubLink}
               target="_blank"
@@ -100,6 +102,7 @@ const projectCard = (project: PrimitiveProject) => {
                 GitHub Repo
               </Button>
             </Link>
+            ) : <></>}
           </CardActions>
         </Card>
       </Box>
