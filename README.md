@@ -1,1 +1,0 @@
-Background image credit: Oussama Bergaoui
