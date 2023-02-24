@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 
 :root {
-    --font-main: Lato;
+    --font-main: Play;
     --color-background: rgb(5, 10, 24);
     --text-color: rgb(255, 255, 255);
     --color-focused: #f7f7f7;
@@ -18,7 +19,7 @@ body {
     overflow: hidden;
     height: 100vh;
     margin: 0;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
 }
 
 a {
@@ -44,10 +45,6 @@ a {
 }
 
 .nav-group {
-    /* flex: 3;
-    display: flex;
-    justify-content: space-evenly; */
-    
     display: flex;
     width: 50%;
     justify-content: space-evenly;
@@ -60,14 +57,14 @@ a {
     display: flex;
     width: 30vw;
     justify-content: space-between;
-    
+
     transition: all 500ms ease;
 
 }
 
 
 .navbar-navs * {
-    margin: 0 7% 0 0 ;
+    margin: 0 7% 0 0;
     color: var(--color-unfocused);
     transition: all 500ms ease;
 }
@@ -79,8 +76,6 @@ a {
     color: var(--color-focused);
     transform: scale(1.1);
 }
-
-
 
 .navs {
     position: relative;
@@ -118,7 +113,6 @@ a {
 #navs-resume:focus::after {
     transform: scale(1);
 }
-
 .theme-container {
     position: relative;
 
@@ -153,20 +147,20 @@ a {
     fill: #f7f7f7f4;
 }
 
-#theme-input:hover ~ #light,
-#theme-input:focus ~ #light{
+#theme-input:hover~#light,
+#theme-input:focus~#light {
     transform: scale(1.1);
 }
 
-#theme-input:hover + #dark,
-#theme-input:focus + #dark{
+#theme-input:hover+#dark,
+#theme-input:focus+#dark {
     transform: scale(1.1);
 }
 
-:root:has(#theme-input:checked){
+:root:has(#theme-input:checked) {
     --color-background: #faf9f6;
     --text-color: rgb(0, 0, 0);
-    --color-focused: #f7f7f7;
+    --color-focused: rgb(5, 10, 24);
     --color-unfocused: rgb(0, 0, 0);
 }
 
@@ -175,22 +169,23 @@ a {
     opacity: 0;
 }
 
-:root:not(:has(#theme-input:checked)) #dark{
+:root:not(:has(#theme-input:checked)) #dark {
     opacity: 0;
 }
 
 /* -----Fallback------ */
-.lightmode{
+.lightmode {
     --color-background: #faf9f6;
     --text-color: rgb(0, 0, 0);
-    --color-focused: #f7f7f7;
+    --color-focused: rgb(5, 10, 24);
     --color-unfocused: rgb(0, 0, 0);
 }
-.lightmode #light{
+
+.lightmode #light {
     opacity: 0;
 }
 
-:root:not(.lightmode) #dark{
+:root:not(.lightmode) #dark {
     opacity: 0;
 }
 
