@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Merienda:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap');
+
+
+:root {
+    --text-normal-font: Lato;
+    --text-header-font: Merienda;
+    /* --background-color: #050A18; */
+    --background-color: #f7f7f7;
+    /* --text-color: #f1f7ed; */
+
+    --secondary-color-light: hsl(293, 100%, 35%);
+    --secondary-color-regular: hsl(293, 100%, 24%);
+    --secondary-color-dark: hsl(293, 100%, 13%);
+
+    --tertiary-color-regular: hsl(180, 34%, 45%);
+    --tertiary-color-dark: hsl(180, 34%, 15%);
+    --tertiary-color-light: hsl(180, 34%, 65%);
+
+    --navbar-color-light: hsl(190, 75%, 81%);
+
+
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--text-normal-font), Roboto;
+
+    overflow: hidden;
+    margin: 0;
+    height: 100vh;
+}
+
+
+/* -------------------------------Utils---------------------------------------- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.desktop-hide {
+    display: none;
+}
+
+@media (max-width:40em) {
+    .desktop-hide {
+        display: block;
+    }
+}
+
+
+
+/* -----------------------Navbar-------------------------------------- */
+
+nav {
+    background-color: var(--navbar-color-light);
+
+    padding-inline-start: 10%;
+
+    display: flex;
+    align-items: center;
+
+
+    position: relative;
+    height: max(5vh, 2rem);
+}
+
+.logo {
+    font-family: "Oleo Script";
+
+    display: flex;
+    flex: 1;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+
+}
+
+.mobile-nav-toggle {
+    display: none;
+
+}
+
+/* ------------------Hamburger Animations--------------------------------- */
+
+.mobile-nav-toggle .hamburger-line {
+    transition:
+        y 150ms ease-in 150ms,
+        transform 150ms ease-in 150ms,
+        rotate 150ms ease-in,
+        opacity 0ms 150ms;
+    transform-origin: center;
+}
+
+.mobile-nav-toggle[aria-expanded='true'] .hamburger-line {
+    transition:
+        y 150ms ease-in,
+        transform 150ms ease-in,
+        rotate 150ms ease-in 150ms,
+        opacity 0ms 150ms;
+}
+
+.mobile-nav-toggle[aria-expanded='true'] :is(.first, .last) {
+    /* y: 45; */
+    /* couldn't use this because of firefox */
+}
+
+.mobile-nav-toggle[aria-expanded='true'] .first {
+    rotate: 45deg;
+    transform: translate(0, 25%);
+}
+
+.mobile-nav-toggle[aria-expanded='true'] .last {
+    rotate: -45deg;
+    transform: translate(2%, -33%);
+
+
+}
+
+.mobile-nav-toggle[aria-expanded='true'] .middle {
+    opacity: 0;
+}
+
+/* ------------------------------------------------------------------------------ */
+
+.nav-list {
+    display: flex;
+    flex: 2;
+
+    list-style: none;
+
+    padding-inline: 0%;
+    margin-left: 15vw;
+
+    font-family: Merienda, Lato, Roboto;
+
+}
+
+.nav-list>* {
+    margin-inline: 1.5vw;
+}
+
+.nav-item {
+    position: relative;
+
+    width: fit-content;
+
+
+}
+
+.nav-item a {
+    text-decoration: none;
+    font-weight: 900;
+
+    color: var(--text-color);
+
+    width: fit-content;
+
+    cursor: pointer;
+
+    transition: scale ease-in 250ms;
+
+}
+
+@media (min-width: 36em) {
+
+    .nav-item::after {
+        position: absolute;
+        bottom: 0%;
+
+        width: 50%;
+        height: 3px;
+
+        background-color: red;
+
+        border-radius: 25%;
+
+    }
+
+    .nav-item:hover,
+    .nav-item:focus-within {
+        transform: scale(1.02);
+    }
+
+    .nav-item a:hover,
+    .nav-item a:focus {
+        color: var(--secondary-color-light);
+        outline: none;
+    }
+
+    .nav-item:hover::after,
+    .nav-item:focus-within::after {
+        content: "";
+        left: 25%;
+
+    }
+}
+
+
+@media (max-width:35em) {
+    .nav-list {
+        background-color: var(--tertiary-color-light);
+        box-shadow: -5px 0px 5px grey;
+
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2em;
+
+        position: fixed;
+        inset: -5% 0 -5% 40%;
+
+        padding: min(15vh, 8rem) 12% 0px;
+
+        z-index: 1000;
+        transform: translateX(100%);
+
+        transition: 300ms;
+    }
+
+    .nav-list[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+    .nav-item {
+        width: fit-content;
+        position: relative;
+    }
+
+    .nav-item::after {
+        content: "";
+
+        height: 2px;
+        width: 80%;
+
+        background-color: red;
+
+        position: absolute;
+        bottom: 0%;
+        right: 0;
+    }
+
+    .mobile-nav-toggle {
+        background: none;
+        border: none;
+
+        display: block;
+
+        position: absolute;
+        right: 2rem;
+
+        width: 1.5rem;
+        aspect-ratio: 1;
+
+        z-index: 9999;
+    }
+}
+
+
+.test {
+    outline: solid green;
+}
