@@ -12,9 +12,11 @@
 </head>
 
 <body>
-    <nav>
-        <header><h2 aria-label="logo" class="logo">ED</h2></header>
-        <button class="mobile-nav-toggle" aria-controls="navbar"
+    <nav id="navbar">
+        <header>
+            <h2 aria-label="logo" class="logo">ED</h2>
+        </header>
+        <button class="mobile-nav-toggle" aria-controls="navbar-list"
                 aria-expanded="false">
             <span class="sr-only">Menu</span>
             <svg class="mobile-hamburger" viewbox="0 0 100 100" width="25">
@@ -28,7 +30,7 @@
             </svg>
 
         </button>
-        <ul data-visible="false" id="navbar" class="nav-list">
+        <ul data-visible="false" id="navbar-list" class="nav-list">
             <li class="nav-item">
                 <a href="#about" tabindex="0">ABOUT</a>
             </li>
@@ -45,6 +47,9 @@
 
         </ul>
     </nav>
+    <main>
+        
+    </main>
 
 
 </body>

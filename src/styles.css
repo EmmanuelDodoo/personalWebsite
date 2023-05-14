@@ -27,9 +27,15 @@ body {
     color: var(--text-color);
     font-family: var(--text-normal-font), Roboto;
 
-    overflow: hidden;
+    overflow-x: hidden;
     margin: 0;
     height: 100vh;
+
+    scroll-margin-block-start: 10vh;
+}
+
+body::-webkit-scrollbar{
+    width: 0.1rem;
 }
 
 
@@ -46,13 +52,19 @@ body {
     border: 0;
 }
 
-.desktop-hide {
+.hide-desktop {
     display: none;
 }
 
-@media (max-width:40em) {
-    .desktop-hide {
+@media (min-width:36em) {
+    .hide-desktop {
         display: block;
+    }
+}
+
+@media (max-width: 35em) {
+    .hide-mobile {
+        display: none;
     }
 }
 
@@ -62,19 +74,26 @@ body {
 
 nav {
     background-color: var(--navbar-color-light);
+    box-shadow: 0px 3px 3px grey;
 
-    padding-inline-start: 10%;
+    /* padding-inline-start: 5%; */
 
     display: flex;
     align-items: center;
 
+    position: fixed;
+    top: 0;
 
-    position: relative;
     height: max(5vh, 2rem);
+    width: 100%;
+
+    transition: top 300ms;
+
+    z-index: 100;
 }
 
-nav > header{
-    
+nav>header {
+
     display: flex;
     flex: 1;
 
@@ -118,19 +137,19 @@ nav > header{
         opacity 0ms 150ms;
 }
 
-.mobile-nav-toggle[aria-expanded='true'] :is(.first, .last) {
-    /* y: 45; */
-    /* couldn't use this because of firefox */
-}
+/* .mobile-nav-toggle[aria-expanded='true'] :is(.first, .last) { */
+/* y: 45; */
+/* couldn't use this because of firefox */
+/* } */
 
 .mobile-nav-toggle[aria-expanded='true'] .first {
     rotate: 45deg;
-    transform: translate(0, 25%);
+    transform: translate(0, 25%); /*firefox solution*/
 }
 
 .mobile-nav-toggle[aria-expanded='true'] .last {
     rotate: -45deg;
-    transform: translate(2%, -33%);
+    transform: translate(2%, -33%); /*firefox solution*/
 
 
 }
@@ -151,7 +170,6 @@ nav > header{
     margin-left: 15vw;
 
     font-family: Merienda, Lato, Roboto;
-
 }
 
 .nav-list>* {
@@ -162,8 +180,6 @@ nav > header{
     position: relative;
 
     width: fit-content;
-
-
 }
 
 .nav-item a {
@@ -271,6 +287,12 @@ nav > header{
 
         z-index: 9999;
     }
+}
+
+/* --------------------Main----------------------------------- */
+
+main{
+    margin-top: 5vh;
 }
 
 
