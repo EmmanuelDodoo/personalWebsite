@@ -73,6 +73,15 @@ nav {
     height: max(5vh, 2rem);
 }
 
+nav > header{
+    
+    display: flex;
+    flex: 1;
+
+    margin: 0;
+    padding: 0;
+}
+
 .logo {
     font-family: "Oleo Script";
 
