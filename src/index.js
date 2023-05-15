@@ -1,14 +1,14 @@
 
 // Sticky-ish navbar
 var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-50px";
-  }
-  prevScrollpos = currentScrollPos;
+window.onscroll = function () {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+    } else {
+        document.getElementById("navbar").style.top = "-50px";
+    }
+    prevScrollpos = currentScrollPos;
 }
 
 
@@ -20,7 +20,7 @@ const navList = document.querySelector(".nav-list");
 
 hamburgerButton.addEventListener("click", () => {
     const hamburgerIsOpened = hamburgerButton.getAttribute("aria-expanded");
-    
+
     if (hamburgerIsOpened === "true") {
         hamburgerButton.setAttribute("aria-expanded", "false");
         navList.setAttribute("data-visible", "false");
@@ -32,5 +32,41 @@ hamburgerButton.addEventListener("click", () => {
     }
 })
 
-// 
+// draggable element
+const draggable = () => {
+    var draggableElement = document.querySelector(".draggable");
+    var initialX;
+    var initialY;
 
+    draggableElement.addEventListener("mousedown", function (event) {
+        initialX = event.clientX;
+        initialY = event.clientY;
+        draggableElement.style.zIndex = "9999"; // Ensures the draggable element is on top
+        draggableElement.style.transition = "none"; // Disable transition during drag
+    });
+
+    document.addEventListener("mousemove", function (event) {
+        if (initialX === undefined || initialY === undefined) {
+            return; // Exit early if mouse down event didn't occur on the draggable element
+        }
+
+        var offsetX = event.clientX - initialX;
+        var offsetY = event.clientY - initialY;
+
+        draggableElement.style.transform = "translate(" + offsetX + "px, " + offsetY + "px)";
+    });
+
+    document.addEventListener("mouseup", function () {
+        if (initialX === undefined || initialY === undefined) {
+            return; // Exit early if mouse down event didn't occur on the draggable element
+        }
+
+        draggableElement.style.transition = "transform 0.3s ease"; // Enable transition after drag
+        draggableElement.style.transform = "none"; // Reset transform to snap back to original position
+
+        initialX = undefined;
+        initialY = undefined;
+    });
+}
+
+draggable()
