@@ -135,6 +135,11 @@ nav>header {
 
 }
 
+.logo a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
 .mobile-nav-toggle {
     display: none;
 
