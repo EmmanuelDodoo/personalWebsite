@@ -15,22 +15,35 @@ window.onscroll = function () {
 
 
 // Hamburger button animation and functionality
-const hamburgerButton = document.querySelector(".mobile-nav-toggle");
-const navList = document.querySelector(".nav-list");
+const hamburgerFunctionality = () => {
 
-hamburgerButton.addEventListener("click", () => {
-    const hamburgerIsOpened = hamburgerButton.getAttribute("aria-expanded");
+    const hamburgerButton = document.querySelector(".mobile-nav-toggle");
+    const navList = document.querySelector(".nav-list");
+    const navItems = document.querySelectorAll(".nav-item");
 
-    if (hamburgerIsOpened === "true") {
-        hamburgerButton.setAttribute("aria-expanded", "false");
-        navList.setAttribute("data-visible", "false");
-    }
-    else {
-        hamburgerButton.setAttribute("aria-expanded", "true");
-        navList.setAttribute("data-visible", "true");
+    hamburgerButton.addEventListener("click", () => {
+        const hamburgerIsOpened = hamburgerButton.getAttribute("aria-expanded");
 
-    }
-})
+        if (hamburgerIsOpened === "true") {
+            hamburgerButton.setAttribute("aria-expanded", "false");
+            navList.setAttribute("data-visible", "false");
+        }
+        else {
+            hamburgerButton.setAttribute("aria-expanded", "true");
+            navList.setAttribute("data-visible", "true");
+
+        }
+
+        navItems.forEach((ni) => {
+            ni.addEventListener("click", () => {
+                hamburgerButton.setAttribute("aria-expanded", "false");
+                navList.setAttribute("data-visible", "false");
+
+            })
+        })
+
+    })
+}
 
 // draggable element
 const draggable = () => {
@@ -69,4 +82,5 @@ const draggable = () => {
     });
 }
 
+hamburgerFunctionality()
 draggable()
