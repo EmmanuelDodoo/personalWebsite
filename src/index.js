@@ -82,5 +82,55 @@ const draggable = () => {
     });
 }
 
+// Carousel stuff
+const setProjectAria = () => {
+    const carouselProjects = document.querySelectorAll(".carousel-project");
+
+    carouselProjects.forEach((project) => {
+        project.addEventListener("mouseover", () => {
+            const pgroup = project.querySelector(".carousel-project-group");
+            pgroup.setAttribute("aria-hidden", "false");
+        });
+
+        project.addEventListener("mouseleave", () => {
+            const pgroup = project.querySelector(".carousel-project-group");
+            pgroup.setAttribute("aria-hidden", "true");
+        });
+
+        project.addEventListener("focusin", () => {
+            const pgroup = project.querySelector(".carousel-project-group");
+            pgroup.setAttribute("aria-hidden", "false");
+        });
+
+        project.addEventListener("focusout", () => {
+            const pgroup = project.querySelector(".carousel-project-group");
+            pgroup.setAttribute("aria-hidden", "true");
+        });
+
+    });
+
+}
+
+const carousel = document.getElementById("carousel")
+const btn = document.getElementById(" cb-left")
+
+const leftCarouselButton = () => {
+    carousel.scrollBy({
+        left: -500,
+        behavior: "smooth",
+    })
+}
+
+const rightCarouselButton = () => {
+    carousel.scrollBy({
+        left: 500,
+        behavior: "smooth"
+    })
+}
+
+btn.addEventListener("click", leftCarouselButton)
+
 hamburgerFunctionality()
 draggable()
+setProjectAria()
+leftCarouselButton()

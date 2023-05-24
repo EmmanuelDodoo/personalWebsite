@@ -27,6 +27,8 @@
     --accents-color-4: orangered;
     --accents-color-5: cyan;
     --accents-color-6: lime;
+    --accents-color-7: hsl(210, 72%, 51%);
+    --accents-color-8: hsl(175, 60%, 49%);
 
     --button-color-light: hsl(90, 100%, 75%);
     --button-color-regular: hsl(90, 100%, 50%);
@@ -101,6 +103,27 @@ body::-webkit-scrollbar {
     position: relative;
 
     width: fit-content;
+}
+
+.link-btn {
+    background-color: var(--button-color-regular);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px;
+
+    padding-inline: 1em;
+
+    text-decoration: none;
+    color: var(--text-color);
+    font-family: Merienda, Lato, Roboto;
+
+    transition: all .25s ease;
+}
+
+.link-btn:hover,
+.link-btn:focus {
+    outline: transparent;
+    background-color: var(--button-color-light);
+    box-shadow: inset 1px 1px 1px;
 }
 
 /* -----------------------Navbar-------------------------------------- */
@@ -264,7 +287,7 @@ nav>header {
     .nav-item a:hover,
     .nav-item a:focus {
         color: var(--secondary-color-light);
-        outline: none;
+        outline: transparent;
     }
 
     .nav-item:hover::after,
@@ -634,6 +657,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10em;
 
     margin-block: 5%;
 }
@@ -816,7 +840,8 @@ main {
 
     display: flex;
     gap: 0.5rem;
-    flex-direction: row-reverse;
+    /* flex-direction: row-reverse; */
+    justify-content: end;
     flex-wrap: wrap;
 
     width: 17rem;
@@ -1003,14 +1028,250 @@ main {
         opacity: 0.9;
     }
 
-    .highlighted-project-image-div:has(+ .highlighted-project-link-group>.highlighted-project-link[aria-label]:hover) .highlighted-project-image,
-    .highlighted-project-image-div:has(+ .highlighted-project-link-group>.highlighted-project-link[aria-label]:focus) .highlighted-project-image {
-        filter: none;
+    .highlighted-project:hover .highlighted-project-image-overlay,
+    .highlighted-project:focus .highlighted-project-image-overlay {
+        opacity: 0.9;
     }
+}
 
+.carousel-section-div {
+    outline: solid;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
 
 }
 
+.carousel-div {
+    outline: solid salmon;
+
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+
+}
+
+.carousel-button {
+    outline: solid green;
+    background: none;
+    border-radius: 10%;
+    padding: 5px;
+    margin: 0;
+}
+
+.carousel-button svg{
+    width: 20px;
+
+    padding: 0;
+    margin: 0;
+    
+}
+
+
+.carousel {
+    outline: solid blue;
+    display: flex;
+    gap: 3em;
+
+    width: 30em;
+
+    padding-block: 10px;
+
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+}
+
+.carousel::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+.carousel-project {
+    position: relative;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-shrink: 0;
+
+
+    aspect-ratio: 4/5;
+    width: 20em;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+    box-shadow: -3px 2px 8px;
+
+    transition: box-shadow 0.2s ease-in;
+
+}
+
+.carousel-project:hover,
+.carousel-project:focus-within {
+    box-shadow: -5px 5px 15px;
+}
+
+.carousel-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--tertiary-color-regular);
+
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+
+}
+
+.carousel-project:hover .carousel-image-overlay,
+.carousel-project:focus-within .carousel-image-overlay {
+    opacity: 0.5;
+}
+
+.carousel-project-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+
+    display: none;
+}
+
+.carousel-project:hover .carousel-project-image,
+.carousel-project:focus-within .carousel-project-image {
+    opacity: 0.3;
+    filter: sepia(100%);
+}
+
+.carousel-project-group {
+    --fade-in: 0.5s;
+
+    z-index: 3;
+
+    margin: .5em 0 0 0;
+    padding: 0;
+
+    width: 95%;
+    height: fit-content;
+
+    transform: translateY(90%);
+    transition: transform 0.25s ease-in;
+
+    /* use backdrop-filter ?? */
+
+}
+
+.carousel-project:hover .carousel-project-group,
+.carousel-project:focus-within .carousel-project-group {
+    transform: translateY(0);
+}
+
+.carousel-project-name {
+    text-align: center;
+    /* background-color: var(--tertiary-color-regular); */
+    backdrop-filter: blur(25px);
+}
+
+.carousel-project:hover .carousel-project-name,
+.carousel-project:focus-within .carousel-project-name {
+    background-color: transparent;
+    backdrop-filter: none;
+
+}
+
+.carousel-project-desc {
+    min-height: 12em;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    opacity: 0;
+    transition: opacity var(--fade-in) ease-in;
+
+}
+
+.carousel-project:hover .carousel-project-desc,
+.carousel-project:focus-within .carousel-project-desc {
+    opacity: 1;
+}
+
+.carousel-project-tag-list {
+    list-style: none;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    max-height: 50px;
+    overflow: hidden;
+
+    opacity: 0;
+    transition: opacity calc(var(--fade-in) * 1.5) ease-in;
+}
+
+.carousel-project:hover .carousel-project-tag-list,
+.carousel-project:focus-within .carousel-project-tag-list {
+    opacity: 1;
+}
+
+.carousel-project-tag {
+    outline: solid var(--accents-color-7);
+    padding-inline: 5px;
+    border-radius: 5px;
+}
+
+.carousel-links-group {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5px 0;
+
+    opacity: 0;
+    transition: opacity calc(var(--fade-in)*2) ease-in;
+}
+
+.carousel-project:hover .carousel-links-group,
+.carousel-project:focus-within .carousel-links-group {
+    opacity: 1;
+}
+
+
+.carousel-link a:hover,
+.carousel-link a:focus {
+    outline: transparent;
+    color: red;
+}
+
+.carousel-link a {
+    text-decoration: none;
+}
 
 
 
@@ -1026,5 +1287,4 @@ main {
     width: 100px;
     height: 80px;
 
-    background-color: aqua;
 }
