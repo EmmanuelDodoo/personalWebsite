@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,300;1,400;1,700&display=swap');
+
+/* ------------------------ Prelude ---------------------------------------- */
+:root {
+    --bg-color: color-mix(in srgb, blue 40%, ivory);
+    --text-color: #fff;
+    --focus-color: #000;    
+
+    --text-font: Merriweather;
+
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+
+    font-family: var(--text-font), Roboto;
+
+    margin: 0;
+    height: 100vh;
+    height: 100dvh;
+
+    scroll-margin-block-start: 10vh;
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar{
+    width: 0.1rem;
+}
+
+
+/* ------------------------ Utils ------------------------------------------ */
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.sm{
+    display: block;
+}
+
+.lg, .md {
+    display: none;
+}
+
+@media screen and (min-width: 577px) {
+    .md{
+        display: block;
+    }
+}
+
+@media screen and (min-width: 993px) {
+    .lg{
+        display: block;
+    }
+}
+
+
+
+/* -------------------------------- Header --------------------------------- */
+
+#header > *:not(.profile-image, a) {
+    animation: header-fade calc(var(--_time-unit) + 2.75s) ease 0s 1 forwards;
+}
+
+#header{
+    --_time-unit: 1.25s;
+    padding: 7rem 5rem 4rem 5rem;
+
+    text-align: center;
+}
+
+#header h1{
+    margin: 0 0 0.25rem 0;
+
+    font-size: 3.25rem;
+}
+
+#header p{
+   font-size: 1.25rem;
+   letter-spacing: -0.025rem;
+}
+
+.profile-image{
+    display: block;
+    margin: 0 0 1.5rem 0;
+
+    animation: header-fade var(--_time-unit) ease 0s 1 forwards;
+}
+
+.profile-image img{
+    display: block;
+    margin: 0 auto;
+    
+    width: 8rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+#nav-arrow{
+    outline: solid var(--text-color);
+    fill: var(--text-color);
+
+    position: relative;
+
+    width: 4rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    margin: 1.5rem auto;
+
+    animation: header-fade calc(var(--_time-unit) + 4.75s) ease 0s 1 forwards;
+}
+
+#nav-arrow svg{
+   fill: inherit;
+   width: 65%;
+   aspect-ratio: 4/3;
+
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   translate: -50% -50%;
+}
+
+#nav-arrow:hover,
+#nav-arrow:focus-visible{
+    outline-color: var(--focus-color);
+    fill: var(--focus-color);
+}
+
+
+
+@media screen and (max-width: 1280px) {
+    #header{
+        padding: 6rem 4rem 3rem 4rem;
+    }
+}
+
+@media screen and (max-width: 900px){
+   #header{
+       padding: 5rem 3rem 2rem 3rem;
+   } 
+}
+
+@media screen and (max-width: 736px){
+    #header{
+        padding: 4rem 2rem 1rem 2rem;
+    } 
+
+    #header p{
+        font-size: p;
+        letter-spacing: 0;
+    }
+
+    #header p br {
+        display: none;
+    }
+
+    #header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+   #header {
+       padding: 4rem 1.5rem 1rem 1.5rem;
+   } 
+}
+
+@media screen and (max-wdith: 360px) {
+    #header{
+        padding: 3.5rem 1rem 0.5rem 1rem;
+    }
+}
+
+@keyframes header-fade {
+   from{
+       opacity: 0;
+   } 
+   to {
+       opacity: 1;
+   }
+}
+
