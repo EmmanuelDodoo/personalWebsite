@@ -1,14 +1,19 @@
-const navbar = document.querySelector("#nav")
+// --------------------------- Nav Stickiness -----------------------------
+
+const nav = document.querySelector("#nav")
 const scrollWatcher = document.createElement("div");
 
 scrollWatcher.setAttribute("data-scroll-watcher", "")
-navbar.before(scrollWatcher)
+nav.before(scrollWatcher)
 
 const navObserver = new IntersectionObserver((entries) => {
-    navbar.classList.toggle("stick", !entries[0].isIntersecting)
+    nav.classList.toggle("stick", !entries[0].isIntersecting)
 }, { rootMargin: "0px 0px 0px 0px" })
 
 navObserver.observe(scrollWatcher)
+
+
+// ----------------------- Nav Active Section ------------------------------
 
 function addSectionObserver(id) {
     const navbar = document.querySelector("#nav")
@@ -31,3 +36,44 @@ function addSectionObserver(id) {
 addSectionObserver("about")
 addSectionObserver("projects")
 addSectionObserver("contact")
+
+
+// ----------------------------- Hamburger btn -----------------------------
+
+const btn = document.querySelector("#mobile-nav-btn")
+const wrapper = document.querySelector("#nav-wrapper")
+const sections = document.querySelectorAll(".nav-section")
+
+btn.addEventListener("click", () => {
+    const isOpen = btn.getAttribute("aria-expanded")
+
+    if (isOpen === "true") {
+        btn.setAttribute("aria-expanded", "false");
+        nav.setAttribute("data-visible", "false")
+        wrapper.setAttribute("data-backdrop", "false")
+    }
+    else {
+        btn.setAttribute("aria-expanded", "true")
+        nav.setAttribute("data-visible", "true")
+        wrapper.setAttribute("data-backdrop", "true")
+    }
+
+    sections.forEach((section) => {
+        section.addEventListener("click", () => {
+            btn.setAttribute("aria-expanded", "false")
+            nav.setAttribute("data-visible", "false")
+            wrapper.setAttribute("data-backdrop", "false")
+        })
+    })
+})
+
+// Auto close nav on outside click
+document.addEventListener("click", (event) => {
+    const isOpen = btn.getAttribute("aria-expanded")
+
+    if (isOpen === "true" && !(nav.contains(event.target) || btn.contains(event.target))) {
+        btn.setAttribute("aria-expanded", "false");
+        nav.setAttribute("data-visible", "false")
+        wrapper.setAttribute("data-backdrop", "false")
+    }
+})
