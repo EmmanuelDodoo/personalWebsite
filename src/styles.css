@@ -37,6 +37,10 @@ body::-webkit-scrollbar {
     width: 0.1rem;
 }
 
+* {
+    scroll-behavior: smooth;
+}
+
 
 
 /* ------------------------ Utils ------------------------------------------ */
