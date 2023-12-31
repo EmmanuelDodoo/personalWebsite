@@ -17,6 +17,8 @@
 
     --text-font: Merriweather;
 
+    --content-width: min(90vw, 80rem);
+
 }
 
 body {
@@ -26,8 +28,14 @@ body {
     font-family: var(--text-font), Roboto;
 
     margin: 0;
+    padding: 0;
     height: 100vh;
     height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 
     scroll-margin-block-start: 10vh;
     scroll-behavior: smooth;
@@ -87,13 +95,17 @@ body::-webkit-scrollbar {
 
 #header {
     --_time-unit: 1.25s;
-    padding: 7rem 5rem 4rem 5rem;
+    padding: 7rem 5rem 1rem 5rem;
+
+    outline: solid red;
+    width: 100%;
+    height: fit-content;
 
     text-align: center;
 }
 
 #header h1 {
-    margin: 0 0 0.25rem 0;
+    margin: 0;
 
     font-size: 3.25rem;
 }
@@ -105,7 +117,7 @@ body::-webkit-scrollbar {
 
 .profile-image {
     display: block;
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 1.0rem 0;
 
     animation: header-fade var(--_time-unit) ease 0s 1 forwards;
 }
@@ -129,7 +141,7 @@ body::-webkit-scrollbar {
     aspect-ratio: 1;
     border-radius: 50%;
 
-    margin: 1.5rem auto;
+    margin: 0.5rem auto;
 
     animation: header-fade calc(var(--_time-unit) + 4.75s) ease 0s 1 forwards;
 }
@@ -155,28 +167,36 @@ body::-webkit-scrollbar {
 
 @media screen and (max-width: 1280px) {
     #header {
-        padding: 6rem 4rem 3rem 4rem;
+        padding: 6rem 4rem 1rem 4rem;
     }
 }
 
 @media screen and (max-width: 900px) {
     #header {
-        padding: 5rem 3rem 2rem 3rem;
+        padding: 5rem 3rem 0.5rem 3rem;
     }
+}
+
+@media screen and (min-width: 736px){
+    #header {
+        max-width: var(--content-width);
+    }
+    #header p{
+        outline: solid gold;
+        max-width: 64rem;
+        margin-inline: auto;
+    }
+    
 }
 
 @media screen and (max-width: 736px) {
     #header {
-        padding: 4rem 2rem 1rem 2rem;
+        padding: 4rem 2rem 0.5rem 2rem;
     }
 
     #header p {
         font-size: p;
         letter-spacing: 0;
-    }
-
-    #header p br {
-        display: none;
     }
 
     #header h1 {
@@ -186,7 +206,7 @@ body::-webkit-scrollbar {
 
 @media screen and (max-width: 480px) {
     #header {
-        padding: 4rem 1.5rem 1rem 1.5rem;
+        padding: 4rem 1.5rem 0.5rem 1.5rem;
     }
 }
 
@@ -210,6 +230,7 @@ body::-webkit-scrollbar {
 /* ------------------------------ Nav -------------------------------------- */
 
 #nav-wrapper {
+    outline: solid blue;
     transition: backdrop-filter 0.5s ease;
     z-index: 1;
 
@@ -361,8 +382,8 @@ body::-webkit-scrollbar {
     border: none;
 
     position: fixed;
-    right: 2rem;
-    top: 1.5rem;
+    right: 12%;
+    top: 2.5%;
 
     width: 1.5rem;
     aspect-ratio: 1;
@@ -381,10 +402,9 @@ body::-webkit-scrollbar {
     #nav-wrapper{
         position: static;
 
-        width: fit-content;
+        width: var(--content-width);
         height: fit-content;
 
-        margin: 0 auto;
     }
 
     #nav {
@@ -395,15 +415,15 @@ body::-webkit-scrollbar {
 
         position: static;
 
-        width: 80rem;
+        width: var(--content-width);
         height: 4rem;
         max-width: calc(100% - 4rem);
         line-height: 4rem;
 
         font-size: 1.1rem;
 
-        padding: 0.5rem 1rem;
-        margin: 0 auto;
+        padding: 0.5rem 2rem;
+        margin: 0;
 
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25em;
@@ -467,6 +487,7 @@ body::-webkit-scrollbar {
     }
 
     #nav-icons{
+        /* outline: solid red; */
         display: block;
         gap: 0;
     }
@@ -499,7 +520,7 @@ body::-webkit-scrollbar {
         left: 50%;
         translate: -50% 0;
 
-        padding: 0.25rem 1rem;
+        padding: 0.25rem 0rem;
 
         border-top-left-radius: 0;
         border-top-right-radius: 0;
@@ -515,6 +536,10 @@ body::-webkit-scrollbar {
         font-size: 0.9rem;
     }
 
+    #nav.stick #nav-icons {
+        margin-right: 5%;
+    }
+
     #nav.stick #nav-icons li .icon svg {
         width: 2.25rem;
     }
@@ -524,6 +549,11 @@ body::-webkit-scrollbar {
     }
 }
 
+@media screen and (max-width: 1024px){
+    #nav.stick {
+        left: 49.5%;
+    }
+}
 
 /* ---------------------------Hamburder animations ------------------------- */
 
@@ -570,3 +600,17 @@ body::-webkit-scrollbar {
 }
 
 
+/* -------------------------- Main ----------------------------------------- */
+
+#main {
+    outline: solid blue;
+
+    width: var(--content-width);
+
+    padding: 0;
+
+}
+
+#about{
+    outline: solid green;
+}
