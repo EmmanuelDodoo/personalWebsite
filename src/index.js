@@ -71,6 +71,7 @@ btn.addEventListener("click", () => {
 
 // Layover coloring
 const layoverWatcher = document.createElement("div")
+layoverWatcher.setAttribute("data-layoutObserver", "")
 header.appendChild(layoverWatcher)
 
 new IntersectionObserver((entries) => {
