@@ -45,8 +45,14 @@ body::-webkit-scrollbar {
     width: 0.1rem;
 }
 
-* {
+html {
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
     scroll-behavior: smooth;
+
+    box-sizing: inherit;
 }
 
 
@@ -363,7 +369,7 @@ body::-webkit-scrollbar {
 }
 
 #nav-icons li a.icon svg{
-    width: 2rem;
+    width: 1.75rem;
     aspect-ratio: 1;
 
     border-radius: 100%;
@@ -382,7 +388,7 @@ body::-webkit-scrollbar {
     border: none;
 
     position: fixed;
-    right: 12%;
+    right: 7%;
     top: 2.5%;
 
     width: 1.5rem;
@@ -417,8 +423,8 @@ body::-webkit-scrollbar {
 
         width: var(--content-width);
         height: 4rem;
-        max-width: calc(100% - 4rem);
-        line-height: 4rem;
+        max-width: none;
+        line-height: 3rem;
 
         font-size: 1.1rem;
 
@@ -463,6 +469,15 @@ body::-webkit-scrollbar {
         padding: auto;
     }
 
+    #nav-sections li {
+        border-radius: 8px;
+    }
+
+    #nav-sections li:hover,
+    #nav-sections li:focus-visible {
+        background-color: var(--highlight-color-2);
+    }
+
     #nav-sections li a {
         display: inline-block;
         position: static;
@@ -472,18 +487,12 @@ body::-webkit-scrollbar {
         line-height: 2.15rem;
 
         padding: 0.25rem 1.5rem;
-        border-radius: 8px;
 
         transition: font-size 0.2s ease;
     }
 
     #nav-sections li a::after{
         display: none;
-    }
-
-    #nav-sections li a:hover,
-    #nav-sections li a:focus-visible {
-        background-color: var(--highlight-color-2);
     }
 
     #nav-icons{
@@ -498,7 +507,7 @@ body::-webkit-scrollbar {
     }
 
     #nav-icons li a.icon svg {
-        width: 2.5rem;
+        width: 2.0rem;
 
         position: static;
 
