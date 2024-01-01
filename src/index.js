@@ -43,7 +43,9 @@ addSectionObserver("contact")
 const btn = document.querySelector("#mobile-nav-btn")
 const wrapper = document.querySelector("#nav-wrapper")
 const sections = document.querySelectorAll(".nav-section")
+const header = document.querySelector("#header")
 
+//Functionality
 btn.addEventListener("click", () => {
     const isOpen = btn.getAttribute("aria-expanded")
 
@@ -66,6 +68,16 @@ btn.addEventListener("click", () => {
         })
     })
 })
+
+// Layover coloring
+const layoverWatcher = document.createElement("div")
+header.appendChild(layoverWatcher)
+
+new IntersectionObserver((entries) => {
+    btn.classList.toggle("btn-layover", !entries[0].isIntersecting)
+}, {
+    rootMargin: "-25px 0px 0px 0px"
+}).observe(layoverWatcher)
 
 // Auto close nav on outside click
 document.addEventListener("click", (event) => {
