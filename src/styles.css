@@ -558,11 +558,6 @@ html {
     }
 }
 
-@media screen and (max-width: 1024px){
-    #nav.stick {
-        left: 49.5%;
-    }
-}
 
 /* ---------------------------Hamburder animations ------------------------- */
 
